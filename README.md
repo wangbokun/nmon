@@ -15,3 +15,7 @@
 ##说明
  - nmon -v
  - nmon  -h
+##使用方法：
+  1. crontab  配置
+    10/* * * * *   sh $dir/nmon &> /tmp/nmon.tmp
+  2. mkdir /etc/nmon && cp nmon.conf.example  /etc/nmon/nmon.conf
