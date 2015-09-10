@@ -1,0 +1,22 @@
+##
+## 本配置文件是程序的一部分，请在修改时仔细小心。
+## 变量赋值，等号两边不应该存在空白字符[空格和制表符]，要以分号结束一个赋值。
+##
+## 以#井号开头的为注释行；
+## 需要监控的程序应该是常驻程序，需要24*7不间断运行的。
+##
+##
+##
+
+## log文件的名字，程序中会附加hostname在.log前；最大log大小默认50M；log文件的个数；是否不记录log而输出到终端("yes"为是)；一次性读取；
+GlobalConf=nmonCommon;     Logfile=/var/log/nmon.log;  Logmaxsize=50;  Logmaxcnt=5;  Logtostdout="no"
+GlobalConf=nmonCommon;     Nsecond='4'
+
+## 以下内容周期性读取，读取周期为上边的 Nsecond
+## server, key, cmd
+## server服务器的IP，user是程序需要用哪个用户启动,Type需要监控进程的类型（jps或普通程序）， key关键字（需唯一）， cmd启动语句（不要以&结束）
+## cmd启动命令，不能包含文件重定向，本程序会自动将其放入后台，丢弃所有的标准输出和标准错误输出。
+
+
+server=ip-10-5-2-67;   user="yarn";     Type=jps; key="NodeManager";             cmd="/etc/init.d/hadoop-yarn-nodemanager start";
+server=ip-10-5-2-67;   user="jason";    Type=elf; key="vim a";                   cmd="sh /tmp/a.sh";
