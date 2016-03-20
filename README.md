@@ -1,6 +1,6 @@
 
 #nmon 进程守护
-#（史上最轻量级进程守护程序,大小仅仅2.1k程序）
+#史上最轻量级进程守护程序,仅仅2.1k程序
 
 - 以下内容周期性读取，配置文件，启动相应进程
 -  配置文件字段 server,user, key, cmd含义
@@ -15,3 +15,7 @@
 ##说明
  - nmon -v
  - nmon  -h
+##使用方法：
+  1. crontab  配置
+    10/* * * * *   sh $dir/nmon &> /tmp/nmon.tmp
+  2. mkdir /etc/nmon && cp nmon.conf.example  /etc/nmon/nmon.conf
